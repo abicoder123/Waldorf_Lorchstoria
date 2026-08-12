@@ -1,1 +1,5 @@
 # Waldorf_Lorchstoria
+
+Waldorf Lorchstoria is an absurdly luxurious, wildly dramatic hotel guest-experience website designed to turn a simple five-star rating into a full-blown event. Featuring elegant Cormorant Garamond typography, glassmorphism, subtle 3D mouse tilt, animated stars, glowing borders, floating ambience, and sophisticated hospitality-inspired styling, the interface begins with the calm, refined atmosphere of a five-star hotel—only to reveal its completely unhinged personality once a rating is selected.
+
+Every rating has its own personality: one star triggers OH NO, two brings WE HAVE CONCERNS, three delivers INTERESTING, four celebrates with MAGNIFIQUE, and five unleashes ABSOLUTELY MAGNIFICENT. The experience includes giant reaction emojis, flying emoji explosions, screen shake, dramatic flashes, animated star pops, glowing rating states, and a full reset system—because at Waldorf Lorchstoria, your feedback isn't simply recorded. It is celebrated, mourned, analyzed, and occasionally turned into an airborne emoji spectacle.
