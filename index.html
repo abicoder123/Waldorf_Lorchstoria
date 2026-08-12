@@ -523,6 +523,51 @@
 
 
 		/* =========================================
+       FEEDBACK INPUT
+    ========================================= */
+
+		.feedback-input {
+			position: relative;
+			z-index: 4;
+
+			display: block;
+			width: 100%;
+			max-width: 400px;
+			height: 70px;
+
+			margin: 15px auto 0;
+			padding: 12px 15px;
+
+			background: rgba(255, 255, 255, 0.4);
+			border: 1px solid rgba(169, 150, 120, 0.3);
+			border-radius: 2px;
+
+			font-family: 'Montserrat', sans-serif;
+			font-size: 12px;
+			color: #514737;
+
+			resize: none;
+			outline: none;
+
+			transition:
+				background 0.4s ease,
+				border-color 0.4s ease,
+				box-shadow 0.4s ease;
+		}
+
+		.feedback-input::placeholder {
+			color: #aaa092;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.feedback-input:focus {
+			background: rgba(255, 255, 255, 0.7);
+			border-color: #a99678;
+			box-shadow: 0 5px 15px rgba(100, 85, 65, 0.08);
+		}
+
+
+		/* =========================================
        BUTTON
     ========================================= */
 
@@ -994,10 +1039,6 @@
 <body>
 
 
-	<!-- =====================================
-       MAIN CARD
-  ====================================== -->
-
 	<div class="card" id="card">
 
 		<div class="corner-bottom"></div>
@@ -1032,29 +1073,29 @@
 			<div class="stars">
 
 				<span
-        onclick="rate(1)"
-        onmouseenter="preview(1)"
-      >★</span>
+      onclick="rate(1)"
+      onmouseenter="preview(1)"
+    >★</span>
 
 				<span
-        onclick="rate(2)"
-        onmouseenter="preview(2)"
-      >★</span>
+      onclick="rate(2)"
+      onmouseenter="preview(2)"
+    >★</span>
 
 				<span
-        onclick="rate(3)"
-        onmouseenter="preview(3)"
-      >★</span>
+      onclick="rate(3)"
+      onmouseenter="preview(3)"
+    >★</span>
 
 				<span
-        onclick="rate(4)"
-        onmouseenter="preview(4)"
-      >★</span>
+      onclick="rate(4)"
+      onmouseenter="preview(4)"
+    >★</span>
 
 				<span
-        onclick="rate(5)"
-        onmouseenter="preview(5)"
-      >★</span>
+      onclick="rate(5)"
+      onmouseenter="preview(5)"
+    >★</span>
 
 			</div>
 
@@ -1063,13 +1104,18 @@
 				Select a rating above
 			</div>
 
+			<textarea
+      id="feedback"
+      class="feedback-input"
+      placeholder="Tell us more about your experience..."
+    ></textarea>
 
 			<button
-      id="again"
-      onclick="resetRating()"
-    >
-      Rate Again ↻
-    </button>
+    id="again"
+    onclick="resetRating()"
+  >
+    Rate Again ↻
+  </button>
 
 
 			<div class="footer">
@@ -1078,10 +1124,6 @@
 
 		</div>
 
-
-		<!-- =====================================
-       CHAOS LAYER
-  ====================================== -->
 
 		<div id="chaosLayer"></div>
 
@@ -1095,6 +1137,9 @@
 
     const output =
       document.getElementById("out");
+
+    const feedbackInput = 
+      document.getElementById("feedback");
 
     const again =
       document.getElementById("again");
@@ -1584,6 +1629,9 @@
     function resetRating() {
 
       selectedRating = 0;
+      
+      // Clear the newly added text area
+      feedbackInput.value = "";
 
 
       stars.forEach(star => {
