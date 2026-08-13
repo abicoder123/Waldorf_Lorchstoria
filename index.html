@@ -2,1065 +2,1123 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Waldorf Lorchestoria — Guest Experience</title>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-    }
-
-    body {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-
-      background:
-        radial-gradient(circle at 18% 15%,
-          #ffffff 0%,
-          transparent 34%),
-        radial-gradient(circle at 85% 85%,
-          #e5ddcf 0%,
-          transparent 42%),
-        #f5f1e9;
-
-      color: #292622;
-      font-family: 'Montserrat', sans-serif;
-
-      transition:
-        background 1s ease,
-        transform .35s ease;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-
-      transition:
-        background 1s ease,
-        opacity 1s ease;
-    }
-
-    body::before {
-      width: 330px;
-      height: 330px;
-      top: -120px;
-      left: -110px;
-      background: #d8c7a9;
-      opacity: .38;
-
-      animation:
-        floatOne 9s ease-in-out infinite alternate;
-    }
-
-    body::after {
-      width: 380px;
-      height: 380px;
-      right: -150px;
-      bottom: -160px;
-      background: #c8c0b3;
-      opacity: .35;
-
-      animation:
-        floatTwo 11s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatOne {
-      to {
-        transform: translate(65px, 45px);
-      }
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Waldorf Lorchestoria — Guest Experience</title>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			margin: 0;
+			min-height: 100%;
+		}
+
+		body {
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			overflow: auto;
+
+			background:
+				radial-gradient(circle at 18% 15%,
+					#ffffff 0%,
+					transparent 34%),
+				radial-gradient(circle at 85% 85%,
+					#e5ddcf 0%,
+					transparent 42%),
+				#f5f1e9;
+
+			color: #292622;
+			font-family: 'Montserrat', sans-serif;
+
+			transition:
+				background 1s ease,
+				transform .35s ease;
+		}
+
+		body::before,
+		body::after {
+			content: "";
+			position: fixed;
+			border-radius: 50%;
+			filter: blur(80px);
+			pointer-events: none;
+
+			transition:
+				background 1s ease,
+				opacity 1s ease;
+		}
+
+		body::before {
+			width: 330px;
+			height: 330px;
+			top: -120px;
+			left: -110px;
+			background: #d8c7a9;
+			opacity: .38;
+
+			animation:
+				floatOne 9s ease-in-out infinite alternate;
+		}
+
+		body::after {
+			width: 380px;
+			height: 380px;
+			right: -150px;
+			bottom: -160px;
+			background: #c8c0b3;
+			opacity: .35;
+
+			animation:
+				floatTwo 11s ease-in-out infinite alternate;
+		}
+
+		@keyframes floatOne {
+			to {
+				transform: translate(65px, 45px);
+			}
+		}
 
-    @keyframes floatTwo {
-      to {
-        transform: translate(-55px, -40px);
-      }
-    }
+		@keyframes floatTwo {
+			to {
+				transform: translate(-55px, -40px);
+			}
+		}
 
-    /* CARD */
+		/* CARD */
 
-    .card {
-      position: relative;
+		.card {
+			position: relative;
 
-      width: min(680px, 92vw);
+			width: min(680px, 92vw);
 
-      padding: 65px 55px;
+			padding: 65px 55px;
 
-      text-align: center;
+			text-align: center;
 
-      background:
-        rgba(255, 255, 255, .73);
+			background:
+				rgba(255, 255, 255, .73);
 
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+			backdrop-filter: blur(22px);
+			-webkit-backdrop-filter: blur(22px);
 
-      border: 1px solid rgba(120, 100, 70, .18);
+			border: 1px solid rgba(120, 100, 70, .18);
 
-      border-radius: 4px;
+			border-radius: 4px;
 
-      box-shadow:
-        0 35px 80px rgba(60, 50, 35, .16),
-        0 5px 20px rgba(60, 50, 35, .08),
-        inset 0 1px 0 rgba(255, 255, 255, .75);
+			box-shadow:
+				0 35px 80px rgba(60, 50, 35, .16),
+				0 5px 20px rgba(60, 50, 35, .08),
+				inset 0 1px 0 rgba(255, 255, 255, .75);
 
-      z-index: 5;
+			z-index: 5;
 
-      animation:
-        entrance .9s cubic-bezier(.2, .8, .2, 1);
+			animation:
+				entrance .9s cubic-bezier(.2, .8, .2, 1);
 
-      transition:
-        box-shadow 1s ease,
-        border-color 1s ease,
-        transform .15s ease;
-    }
+			transition:
+				box-shadow 1s ease,
+				border-color 1s ease,
+				transform .15s ease;
+		}
 
-    @keyframes entrance {
-      from {
-        opacity: 0;
-        transform:
-          translateY(28px) scale(.97);
-      }
+		@keyframes entrance {
+			from {
+				opacity: 0;
+				transform:
+					translateY(28px) scale(.97);
+			}
 
-      to {
-        opacity: 1;
-        transform:
-          translateY(0) scale(1);
-      }
-    }
+			to {
+				opacity: 1;
+				transform:
+					translateY(0) scale(1);
+			}
+		}
 
-    /* INNER FRAME */
+		/* INNER FRAME */
 
-    .card::before {
-      content: "";
+		.card::before {
+			content: "";
 
-      position: absolute;
-      inset: 17px;
+			position: absolute;
+			inset: 17px;
 
-      border: 1px solid rgba(155, 137, 108, .22);
+			border: 1px solid rgba(155, 137, 108, .22);
 
-      pointer-events: none;
+			pointer-events: none;
 
-      transition:
-        inset .5s ease,
-        border-color .8s ease;
-    }
+			transition:
+				inset .5s ease,
+				border-color .8s ease;
+		}
 
-    .card::after {
-      content: "";
+		.card::after {
+			content: "";
 
-      position: absolute;
+			position: absolute;
 
-      top: 17px;
-      left: 17px;
+			top: 17px;
+			left: 17px;
 
-      width: 35px;
-      height: 35px;
+			width: 35px;
+			height: 35px;
 
-      border-top: 1px solid #9b896c;
-      border-left: 1px solid #9b896c;
+			border-top: 1px solid #9b896c;
+			border-left: 1px solid #9b896c;
 
-      pointer-events: none;
+			pointer-events: none;
 
-      transition:
-        width .5s ease,
-        height .5s ease,
-        border-color .8s ease;
-    }
+			transition:
+				width .5s ease,
+				height .5s ease,
+				border-color .8s ease;
+		}
 
-    .corner-bottom {
-      position: absolute;
+		.corner-bottom {
+			position: absolute;
 
-      right: 17px;
-      bottom: 17px;
+			right: 17px;
+			bottom: 17px;
 
-      width: 35px;
-      height: 35px;
+			width: 35px;
+			height: 35px;
 
-      border-right: 1px solid #9b896c;
-      border-bottom: 1px solid #9b896c;
+			border-right: 1px solid #9b896c;
+			border-bottom: 1px solid #9b896c;
 
-      transition:
-        width .5s ease,
-        height .5s ease,
-        border-color .8s ease;
-    }
+			transition:
+				width .5s ease,
+				height .5s ease,
+				border-color .8s ease;
+		}
 
-    /* LOGO */
+		/* LOGO */
 
-    .logo {
-      position: relative;
-      z-index: 2;
+		.logo {
+			position: relative;
+			z-index: 2;
 
-      font-family:
-        'Cormorant Garamond',
-        Georgia,
-        serif;
+			font-family:
+				'Cormorant Garamond',
+				Georgia,
+				serif;
 
-      font-size:
-        clamp(36px, 7vw, 60px);
+			font-size:
+				clamp(36px, 7vw, 60px);
 
-      line-height: .88;
+			line-height: .88;
 
-      font-weight: 500;
+			font-weight: 500;
 
-      letter-spacing: 4px;
+			letter-spacing: 4px;
 
-      color: #252321;
+			color: #252321;
 
-      transition:
-        color .8s ease,
-        letter-spacing .8s ease;
-    }
+			transition:
+				color .8s ease,
+				letter-spacing .8s ease;
+		}
 
-    .logo-small {
-      position: relative;
-      z-index: 2;
+		.logo-small {
+			position: relative;
+			z-index: 2;
 
-      margin-top: 18px;
+			margin-top: 18px;
 
-      font-size: 11px;
+			font-size: 11px;
 
-      letter-spacing: 6px;
+			letter-spacing: 6px;
 
-      color: #8a785f;
-    }
+			color: #8a785f;
+		}
 
-    /* DIVIDER */
+		/* DIVIDER */
 
-    .divider {
-      display: flex;
+		.divider {
+			display: flex;
 
-      align-items: center;
-      justify-content: center;
+			align-items: center;
+			justify-content: center;
 
-      gap: 15px;
+			gap: 15px;
 
-      margin: 35px 0 30px;
-    }
+			margin: 35px 0 30px;
+		}
 
-    .divider::before,
-    .divider::after {
-      content: "";
+		.divider::before,
+		.divider::after {
+			content: "";
 
-      width: 70px;
-      height: 1px;
+			width: 70px;
+			height: 1px;
 
-      background: #b9aa92;
+			background: #b9aa92;
 
-      transition:
-        width .6s ease,
-        background .6s ease;
-    }
+			transition:
+				width .6s ease,
+				background .6s ease;
+		}
 
-    .diamond {
-      width: 7px;
-      height: 7px;
+		.diamond {
+			width: 7px;
+			height: 7px;
 
-      background: #9b896c;
+			background: #9b896c;
 
-      transform: rotate(45deg);
+			transform: rotate(45deg);
 
-      transition:
-        transform .7s cubic-bezier(.2, .8, .2, 1),
-        background .6s ease;
-    }
+			transition:
+				transform .7s cubic-bezier(.2, .8, .2, 1),
+				background .6s ease;
+		}
 
-    /* HEADING */
+		/* HEADING */
 
-    h1 {
-      position: relative;
-      z-index: 2;
+		h1 {
+			position: relative;
+			z-index: 2;
 
-      margin: 0;
+			margin: 0;
 
-      font-family:
-        'Cormorant Garamond',
-        Georgia,
-        serif;
+			font-family:
+				'Cormorant Garamond',
+				Georgia,
+				serif;
 
-      font-size: 32px;
+			font-size: 32px;
 
-      font-weight: 500;
+			font-weight: 500;
 
-      letter-spacing: .5px;
-    }
+			letter-spacing: .5px;
+		}
 
-    .subtitle {
-      position: relative;
-      z-index: 2;
+		.subtitle {
+			position: relative;
+			z-index: 2;
 
-      margin-top: 12px;
+			margin-top: 12px;
 
-      color: #7c746a;
+			color: #7c746a;
 
-      font-size: 13px;
+			font-size: 13px;
 
-      font-weight: 300;
+			font-weight: 300;
 
-      letter-spacing: 1px;
-    }
+			letter-spacing: 1px;
+		}
 
-    /* STARS */
+		/* STARS */
 
-    .stars {
-      position: relative;
-      z-index: 4;
+		.stars {
+			position: relative;
+			z-index: 4;
 
-      display: flex;
+			display: flex;
 
-      justify-content: center;
+			justify-content: center;
 
-      gap: 8px;
+			gap: 8px;
 
-      margin: 35px 0 18px;
-    }
+			margin: 35px 0 18px;
+		}
 
-    .stars span {
-      position: relative;
+		.stars span {
+			position: relative;
 
-      font-family: Georgia, serif;
+			font-family: Georgia, serif;
 
-      font-size:
-        clamp(42px, 9vw, 58px);
+			font-size:
+				clamp(42px, 9vw, 58px);
 
-      line-height: 1;
+			line-height: 1;
 
-      color: #d4cec2;
+			color: #d4cec2;
 
-      cursor: pointer;
+			cursor: pointer;
 
-      user-select: none;
+			user-select: none;
 
-      transition:
-        color .35s ease,
-        transform .3s cubic-bezier(.2, .9, .3, 1),
-        text-shadow .35s ease;
-    }
+			transition:
+				color .35s ease,
+				transform .3s cubic-bezier(.2, .9, .3, 1),
+				text-shadow .35s ease;
+		}
 
-    .stars span:hover {
-      color: #b49b70;
+		.stars span:hover {
+			color: #b49b70;
 
-      transform:
-        translateY(-6px) scale(1.08);
+			transform:
+				translateY(-6px) scale(1.08);
 
-      text-shadow:
-        0 7px 20px rgba(130, 105, 65, .25);
-    }
+			text-shadow:
+				0 7px 20px rgba(130, 105, 65, .25);
+		}
 
-    .stars span.active {
-      color: #a88958;
+		.stars span.active {
+			color: #a88958;
 
-      text-shadow:
-        0 2px 13px rgba(150, 120, 65, .28);
-    }
+			text-shadow:
+				0 2px 13px rgba(150, 120, 65, .28);
+		}
 
-    .stars span.active::after {
-      content: "";
+		.stars span.active::after {
+			content: "";
 
-      position: absolute;
+			position: absolute;
 
-      left: 50%;
-      bottom: -2px;
+			left: 50%;
+			bottom: -2px;
 
-      width: 17px;
-      height: 4px;
+			width: 17px;
+			height: 4px;
 
-      transform: translateX(-50%);
+			transform: translateX(-50%);
 
-      border-radius: 50%;
+			border-radius: 50%;
 
-      background: #b0925d;
+			background: #b0925d;
 
-      filter: blur(6px);
+			filter: blur(6px);
 
-      opacity: .5;
+			opacity: .5;
 
-      animation:
-        starGlow 2s ease-in-out infinite;
-    }
+			animation:
+				starGlow 2s ease-in-out infinite;
+		}
 
-    @keyframes starGlow {
-      50% {
-        width: 25px;
-        opacity: .75;
-      }
-    }
+		@keyframes starGlow {
+			50% {
+				width: 25px;
+				opacity: .75;
+			}
+		}
 
-    .stars span.pop {
-      animation:
-        starPop .55s cubic-bezier(.2, 1.5, .4, 1);
-    }
+		.stars span.pop {
+			animation:
+				starPop .55s cubic-bezier(.2, 1.5, .4, 1);
+		}
 
-    @keyframes starPop {
-      0% {
-        transform: scale(1);
-      }
+		@keyframes starPop {
+			0% {
+				transform: scale(1);
+			}
 
-      45% {
-        transform:
-          translateY(-7px) scale(1.18);
-      }
+			45% {
+				transform:
+					translateY(-7px) scale(1.18);
+			}
 
-      75% {
-        transform: scale(.96);
-      }
+			75% {
+				transform: scale(.96);
+			}
 
-      100% {
-        transform: scale(1);
-      }
-    }
+			100% {
+				transform: scale(1);
+			}
+		}
 
-    /* OUTPUT */
+		/* OUTPUT */
 
-    #out {
-      position: relative;
-      z-index: 2;
+		#out {
+			position: relative;
+			z-index: 2;
 
-      min-height: 48px;
+			min-height: 48px;
 
-      margin-top: 12px;
+			margin-top: 12px;
 
-      font-family:
-        'Cormorant Garamond',
-        Georgia,
-        serif;
+			font-family:
+				'Cormorant Garamond',
+				Georgia,
+				serif;
 
-      font-size: 22px;
+			font-size: 22px;
 
-      color: #514737;
+			color: #514737;
 
-      transition:
-        color .6s ease;
-    }
+			transition:
+				color .6s ease;
+		}
 
-    #out.change {
-      animation:
-        outputIn .45s ease;
-    }
+		#out.change {
+			animation:
+				outputIn .45s ease;
+		}
 
-    @keyframes outputIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
+		@keyframes outputIn {
+			from {
+				opacity: 0;
+				transform: translateY(8px);
+			}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-    .rating-number {
-      display: block;
+		.rating-number {
+			display: block;
 
-      margin-top: 4px;
+			margin-top: 4px;
 
-      font-family: Montserrat, sans-serif;
+			font-family: Montserrat, sans-serif;
 
-      font-size: 10px;
+			font-size: 10px;
 
-      letter-spacing: 3px;
+			letter-spacing: 3px;
 
-      text-transform: uppercase;
+			text-transform: uppercase;
 
-      color: #a08d70;
-    }
+			color: #a08d70;
+		}
 
-    /* FEEDBACK INPUT */
+		/* FEEDBACK INPUT */
 
-    .feedback-input {
-      position: relative;
-      z-index: 4;
+		.feedback-input {
+			position: relative;
+			z-index: 4;
 
-      display: block;
+			display: block;
 
-      width: 100%;
-      max-width: 400px;
-      height: 70px;
+			width: 100%;
+			max-width: 400px;
+			height: 70px;
 
-      margin: 15px auto 0;
-      padding: 12px 15px;
+			margin: 15px auto 0;
+			padding: 12px 15px;
 
-      background: rgba(255, 255, 255, 0.4);
+			background: rgba(255, 255, 255, 0.4);
 
-      border: 1px solid rgba(169, 150, 120, 0.3);
+			border: 1px solid rgba(169, 150, 120, 0.3);
 
-      border-radius: 2px;
+			border-radius: 2px;
 
-      font-family: 'Montserrat', sans-serif;
+			font-family: 'Montserrat', sans-serif;
 
-      font-size: 12px;
+			font-size: 12px;
 
-      color: #514737;
+			color: #514737;
 
-      resize: none;
+			resize: none;
 
-      outline: none;
+			outline: none;
 
-      transition:
-        background 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
-    }
+			transition:
+				background 0.4s ease,
+				border-color 0.4s ease,
+				box-shadow 0.4s ease;
+		}
 
-    .feedback-input::placeholder {
-      color: #aaa092;
-      font-family: 'Montserrat', sans-serif;
-    }
+		.feedback-input::placeholder {
+			color: #aaa092;
+			font-family: 'Montserrat', sans-serif;
+		}
 
-    .feedback-input:focus {
-      background: rgba(255, 255, 255, 0.7);
+		.feedback-input:focus {
+			background: rgba(255, 255, 255, 0.7);
 
-      border-color: #a99678;
+			border-color: #a99678;
 
-      box-shadow:
-        0 5px 15px rgba(100, 85, 65, 0.08);
-    }
+			box-shadow:
+				0 5px 15px rgba(100, 85, 65, 0.08);
+		}
 
-    /* BUTTON */
+		/* BUTTONS */
 
-    #again {
-      position: relative;
-      z-index: 4;
+		.button-row {
+			position: relative;
+			z-index: 10;
 
-      margin-top: 25px;
+			display: flex;
 
-      padding: 13px 28px;
+			justify-content: center;
 
-      border: 1px solid #a99678;
+			align-items: center;
 
-      background: transparent;
+			gap: 10px;
 
-      color: #675a48;
+			flex-wrap: wrap;
 
-      font-family: Montserrat, sans-serif;
+			margin-top: 25px;
+		}
 
-      font-size: 11px;
+		#submitReview,
+		#again {
+			position: relative;
+			z-index: 10;
 
-      letter-spacing: 2px;
+			padding: 13px 28px;
 
-      text-transform: uppercase;
+			border: 1px solid #a99678;
 
-      cursor: pointer;
+			background: rgba(255, 255, 255, .35);
 
-      opacity: 0;
+			color: #675a48;
 
-      pointer-events: none;
+			font-family: Montserrat, sans-serif;
 
-      transition:
-        opacity .4s ease,
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
-    }
+			font-size: 11px;
 
-    #again.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
+			letter-spacing: 2px;
 
-    #again:hover {
-      background: #675a48;
+			text-transform: uppercase;
 
-      color: white;
+			cursor: pointer;
 
-      transform: translateY(-2px);
+			transition:
+				opacity .4s ease,
+				background .3s ease,
+				color .3s ease,
+				transform .3s ease,
+				box-shadow .3s ease;
+		}
 
-      box-shadow:
-        0 8px 20px rgba(80, 65, 45, .14);
-    }
+		/* SUBMIT BUTTON IS ALWAYS VISIBLE */
 
-    /* FOOTER */
+		#submitReview {
+			opacity: 1;
+			pointer-events: auto;
+		}
 
-    .footer {
-      position: relative;
-      z-index: 2;
+		#again {
+			opacity: 0;
+			pointer-events: none;
+		}
 
-      margin-top: 35px;
+		#again.show {
+			opacity: 1;
+			pointer-events: auto;
+		}
 
-      font-size: 9px;
+		#submitReview:hover,
+		#again:hover {
+			background: #675a48;
 
-      letter-spacing: 3px;
+			color: white;
 
-      text-transform: uppercase;
+			transform: translateY(-2px);
 
-      color: #aaa092;
-    }
+			box-shadow:
+				0 8px 20px rgba(80, 65, 45, .14);
+		}
 
-    /* RATING STATES */
+		#submitReview:disabled {
+			opacity: .6;
 
-    .card.low {
-      border-color:
-        rgba(120, 125, 125, .28);
+			cursor: wait;
 
-      box-shadow:
-        0 35px 80px rgba(60, 50, 35, .15),
-        0 0 35px rgba(100, 110, 110, .08);
-    }
+			transform: none;
+		}
 
-    .card.low #out {
-      color: #625f59;
-    }
+		/* STATUS */
 
-    .card.neutral {
-      border-color:
-        rgba(155, 140, 115, .3);
+		#submitStatus {
+			position: relative;
 
-      box-shadow:
-        0 35px 80px rgba(60, 50, 35, .15),
-        0 0 35px rgba(160, 140, 105, .08);
-    }
+			z-index: 10;
 
-    .card.good {
-      border-color:
-        rgba(170, 145, 95, .42);
+			min-height: 18px;
 
-      box-shadow:
-        0 35px 80px rgba(60, 50, 35, .15),
-        0 0 45px rgba(175, 145, 90, .13);
-    }
+			margin-top: 10px;
 
-    .card.excellent {
-      border-color:
-        rgba(175, 143, 82, .58);
+			font-family: Montserrat, sans-serif;
 
-      box-shadow:
-        0 35px 80px rgba(60, 50, 35, .15),
-        0 0 65px rgba(180, 145, 80, .18);
-    }
+			font-size: 10px;
 
-    .card.excellent::before {
-      border-color:
-        rgba(176, 146, 93, .35);
-    }
+			letter-spacing: 1px;
 
-    .card.excellent::after,
-    .card.excellent .corner-bottom {
-      border-color: #b0925d;
-    }
+			color: #8a785f;
+		}
 
-    .card.excellent .diamond {
-      transform:
-        rotate(225deg) scale(1.25);
+		/* FOOTER */
 
-      background: #b0925d;
-    }
+		.footer {
+			position: relative;
+			z-index: 2;
 
-    .card.excellent .divider::before,
-    .card.excellent .divider::after {
-      width: 100px;
+			margin-top: 35px;
 
-      background: #b0925d;
-    }
+			font-size: 9px;
 
-    /* CHAOS OVERLAY */
+			letter-spacing: 3px;
 
-    #chaosLayer {
-      position: fixed;
+			text-transform: uppercase;
 
-      inset: 0;
+			color: #aaa092;
+		}
 
-      z-index: 200;
+		/* RATING STATES */
 
-      pointer-events: none;
+		.card.low {
+			border-color:
+				rgba(120, 125, 125, .28);
 
-      opacity: 0;
+			box-shadow:
+				0 35px 80px rgba(60, 50, 35, .15),
+				0 0 35px rgba(100, 110, 110, .08);
+		}
 
-      visibility: hidden;
-    }
+		.card.low #out {
+			color: #625f59;
+		}
 
-    #chaosLayer.active {
-      opacity: 1;
-      visibility: visible;
-    }
+		.card.neutral {
+			border-color:
+				rgba(155, 140, 115, .3);
 
-    /* GIANT EMOJI */
+			box-shadow:
+				0 35px 80px rgba(60, 50, 35, .15),
+				0 0 35px rgba(160, 140, 105, .08);
+		}
 
-    .giant-emoji {
-      position: absolute;
+		.card.good {
+			border-color:
+				rgba(170, 145, 95, .42);
 
-      left: 50%;
-      top: 50%;
+			box-shadow:
+				0 35px 80px rgba(60, 50, 35, .15),
+				0 0 45px rgba(175, 145, 90, .13);
+		}
 
-      transform:
-        translate(-50%, -50%) scale(.2) rotate(-15deg);
+		.card.excellent {
+			border-color:
+				rgba(175, 143, 82, .58);
 
-      font-size:
-        clamp(90px, 18vw, 180px);
+			box-shadow:
+				0 35px 80px rgba(60, 50, 35, .15),
+				0 0 65px rgba(180, 145, 80, .18);
+		}
 
-      line-height: 1;
+		.card.excellent::before {
+			border-color:
+				rgba(176, 146, 93, .35);
+		}
 
-      filter:
-        drop-shadow(0 15px 15px rgba(0, 0, 0, .18));
+		.card.excellent::after,
+		.card.excellent .corner-bottom {
+			border-color: #b0925d;
+		}
 
-      animation:
-        giantEmoji 2.4s cubic-bezier(.2, 1.2, .3, 1) forwards;
-    }
+		.card.excellent .diamond {
+			transform:
+				rotate(225deg) scale(1.25);
 
-    @keyframes giantEmoji {
+			background: #b0925d;
+		}
 
-      0% {
-        opacity: 0;
+		.card.excellent .divider::before,
+		.card.excellent .divider::after {
+			width: 100px;
 
-        transform:
-          translate(-50%, -50%) scale(.1) rotate(-20deg);
-      }
+			background: #b0925d;
+		}
 
-      12% {
-        opacity: 1;
-      }
+		/* CHAOS OVERLAY */
 
-      25% {
-        transform:
-          translate(-50%, -50%) scale(1.35) rotate(10deg);
-      }
+		#chaosLayer {
+			position: fixed;
 
-      40% {
-        transform:
-          translate(-50%, -50%) scale(.95) rotate(-7deg);
-      }
+			inset: 0;
 
-      55% {
-        transform:
-          translate(-50%, -50%) scale(1.05) rotate(4deg);
-      }
+			z-index: 200;
 
-      75% {
-        opacity: 1;
-      }
+			pointer-events: none;
 
-      100% {
-        opacity: 0;
+			opacity: 0;
 
-        transform:
-          translate(-50%, -50%) scale(1.7) rotate(0deg);
-      }
-    }
+			visibility: hidden;
+		}
 
-    /* CHAOS WORDS */
+		#chaosLayer.active {
+			opacity: 1;
+			visibility: visible;
+		}
 
-    .chaos-title {
-      position: absolute;
+		.giant-emoji {
+			position: absolute;
 
-      top: 12%;
-      left: 50%;
+			left: 50%;
+			top: 50%;
 
-      transform:
-        translateX(-50%) scale(.5) rotate(-5deg);
+			transform:
+				translate(-50%, -50%) scale(.2) rotate(-15deg);
 
-      white-space: nowrap;
+			font-size:
+				clamp(90px, 18vw, 180px);
 
-      font-family:
-        'Cormorant Garamond',
-        Georgia,
-        serif;
+			line-height: 1;
 
-      font-size:
-        clamp(28px, 6vw, 58px);
+			filter:
+				drop-shadow(0 15px 15px rgba(0, 0, 0, .18));
 
-      font-weight: 700;
+			animation:
+				giantEmoji 2.4s cubic-bezier(.2, 1.2, .3, 1) forwards;
+		}
 
-      letter-spacing: 4px;
+		@keyframes giantEmoji {
 
-      color: #292622;
+			0% {
+				opacity: 0;
 
-      text-shadow:
-        3px 3px 0 white,
-        0 10px 25px rgba(0, 0, 0, .12);
+				transform:
+					translate(-50%, -50%) scale(.1) rotate(-20deg);
+			}
 
-      animation:
-        chaosTitle 2.3s ease forwards;
-    }
+			12% {
+				opacity: 1;
+			}
 
-    @keyframes chaosTitle {
+			25% {
+				transform:
+					translate(-50%, -50%) scale(1.35) rotate(10deg);
+			}
 
-      0% {
-        opacity: 0;
+			40% {
+				transform:
+					translate(-50%, -50%) scale(.95) rotate(-7deg);
+			}
 
-        transform:
-          translateX(-50%) scale(.4) rotate(-7deg);
-      }
+			55% {
+				transform:
+					translate(-50%, -50%) scale(1.05) rotate(4deg);
+			}
 
-      15% {
-        opacity: 1;
+			75% {
+				opacity: 1;
+			}
 
-        transform:
-          translateX(-50%) scale(1.1) rotate(3deg);
-      }
+			100% {
+				opacity: 0;
 
-      65% {
-        opacity: 1;
-      }
+				transform:
+					translate(-50%, -50%) scale(1.7) rotate(0deg);
+			}
+		}
 
-      100% {
-        opacity: 0;
+		.chaos-title {
+			position: absolute;
 
-        transform:
-          translateX(-50%) scale(1.25) rotate(0);
-      }
-    }
+			top: 12%;
+			left: 50%;
 
-    /* FLYING EMOJIS */
+			transform:
+				translateX(-50%) scale(.5) rotate(-5deg);
 
-    .flying-emoji {
-      position: absolute;
+			white-space: nowrap;
 
-      left: 50%;
-      top: 50%;
+			font-family:
+				'Cormorant Garamond',
+				Georgia,
+				serif;
 
-      font-size:
-        var(--size);
+			font-size:
+				clamp(28px, 6vw, 58px);
 
-      line-height: 1;
+			font-weight: 700;
 
-      animation:
-        flyEmoji 2.4s cubic-bezier(.12, .8, .25, 1) forwards;
+			letter-spacing: 4px;
 
-      animation-delay:
-        var(--delay);
-    }
+			color: #292622;
 
-    @keyframes flyEmoji {
+			text-shadow:
+				3px 3px 0 white,
+				0 10px 25px rgba(0, 0, 0, .12);
 
-      0% {
-        opacity: 0;
+			animation:
+				chaosTitle 2.3s ease forwards;
+		}
 
-        transform:
-          translate(-50%, -50%) scale(.2) rotate(0);
-      }
+		@keyframes chaosTitle {
 
-      12% {
-        opacity: 1;
-      }
+			0% {
+				opacity: 0;
 
-      45% {
-        transform:
-          translate(
-            calc(-50% + var(--x)),
-            calc(-50% + var(--y))
-          )
-          scale(1.15)
-          rotate(var(--r));
-      }
+				transform:
+					translateX(-50%) scale(.4) rotate(-7deg);
+			}
 
-      75% {
-        opacity: 1;
-      }
+			15% {
+				opacity: 1;
 
-      100% {
-        opacity: 0;
+				transform:
+					translateX(-50%) scale(1.1) rotate(3deg);
+			}
 
-        transform:
-          translate(
-            calc(-50% + var(--x2)),
-            calc(-50% + var(--y2))
-          )
-          scale(.65)
-          rotate(var(--r2));
-      }
-    }
+			65% {
+				opacity: 1;
+			}
 
-    /* CHAOS FLASH */
+			100% {
+				opacity: 0;
 
-    .chaos-flash {
-      position: absolute;
+				transform:
+					translateX(-50%) scale(1.25) rotate(0);
+			}
+		}
 
-      inset: 0;
+		.flying-emoji {
+			position: absolute;
 
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(255, 255, 255, .75),
-          transparent 35%
-        );
+			left: 50%;
+			top: 50%;
 
-      opacity: 0;
+			font-size:
+				var(--size);
 
-      animation:
-        chaosFlash .65s ease;
-    }
+			line-height: 1;
 
-    @keyframes chaosFlash {
+			animation:
+				flyEmoji 2.4s cubic-bezier(.12, .8, .25, 1) forwards;
 
-      0% {
-        opacity: 0;
-      }
+			animation-delay:
+				var(--delay);
+		}
 
-      25% {
-        opacity: 1;
-      }
+		@keyframes flyEmoji {
 
-      100% {
-        opacity: 0;
-      }
-    }
+			0% {
+				opacity: 0;
 
-    /* SCREEN SHAKE */
+				transform:
+					translate(-50%, -50%) scale(.2) rotate(0);
+			}
 
-    body.chaos-shake {
-      animation:
-        shake .55s ease;
-    }
+			12% {
+				opacity: 1;
+			}
 
-    @keyframes shake {
+			45% {
+				transform:
+					translate(calc(-50% + var(--x)),
+						calc(-50% + var(--y))) scale(1.15) rotate(var(--r));
+			}
 
-      0% {
-        transform: translate(0);
-      }
+			75% {
+				opacity: 1;
+			}
 
-      20% {
-        transform: translate(-5px, 2px);
-      }
+			100% {
+				opacity: 0;
 
-      40% {
-        transform: translate(5px, -2px);
-      }
+				transform:
+					translate(calc(-50% + var(--x2)),
+						calc(-50% + var(--y2))) scale(.65) rotate(var(--r2));
+			}
+		}
 
-      60% {
-        transform: translate(-3px, -1px);
-      }
+		.chaos-flash {
+			position: absolute;
 
-      80% {
-        transform: translate(3px, 1px);
-      }
+			inset: 0;
 
-      100% {
-        transform: translate(0);
-      }
-    }
+			background:
+				radial-gradient(circle at center,
+					rgba(255, 255, 255, .75),
+					transparent 35%);
 
-    /* MOBILE */
+			opacity: 0;
 
-    @media(max-width:600px) {
+			animation:
+				chaosFlash .65s ease;
+		}
 
-      .card {
-        padding: 50px 25px;
-      }
+		@keyframes chaosFlash {
 
-      .stars {
-        gap: 4px;
-      }
+			0% {
+				opacity: 0;
+			}
 
-      .stars span {
-        font-size: 45px;
-      }
+			25% {
+				opacity: 1;
+			}
 
-      .divider::before,
-      .divider::after {
-        width: 45px;
-      }
+			100% {
+				opacity: 0;
+			}
+		}
 
-      .chaos-title {
-        white-space: normal;
+		body.chaos-shake {
+			animation:
+				shake .55s ease;
+		}
 
-        width: 90%;
+		@keyframes shake {
 
-        text-align: center;
-      }
-    }
-  </style>
+			0% {
+				transform: translate(0);
+			}
+
+			20% {
+				transform: translate(-5px, 2px);
+			}
+
+			40% {
+				transform: translate(5px, -2px);
+			}
+
+			60% {
+				transform: translate(-3px, -1px);
+			}
+
+			80% {
+				transform: translate(3px, 1px);
+			}
+
+			100% {
+				transform: translate(0);
+			}
+		}
+
+		/* MOBILE */
+
+		@media(max-width:600px) {
+
+			.card {
+				padding: 50px 25px;
+			}
+
+			.stars {
+				gap: 4px;
+			}
+
+			.stars span {
+				font-size: 45px;
+			}
+
+			.divider::before,
+			.divider::after {
+				width: 45px;
+			}
+
+			.chaos-title {
+				white-space: normal;
+
+				width: 90%;
+
+				text-align: center;
+			}
+
+			.button-row {
+				flex-direction: column;
+			}
+
+			#submitReview,
+			#again {
+				width: 100%;
+				max-width: 260px;
+			}
+		}
+	</style>
 </head>
 
 
 <body>
 
-  <div class="card" id="card">
+	<div class="card" id="card">
 
-    <div class="corner-bottom"></div>
+		<div class="corner-bottom"></div>
 
-    <div class="logo">
-      WALDORF<br>
+		<div class="logo">
+			WALDORF<br>
       LORCHESTORIA
     </div>
 
-    <div class="logo-small">
-      EST. 2026 · LUXURY · HOSPITALITY
-    </div>
+			<div class="logo-small">
+				EST. 2026 · LUXURY · HOSPITALITY
+			</div>
 
-    <div class="divider">
-      <div class="diamond"></div>
-    </div>
+			<div class="divider">
+				<div class="diamond"></div>
+			</div>
 
-    <h1>
-      How was your stay?
-    </h1>
+			<h1>
+				How was your stay?
+			</h1>
 
-    <div class="subtitle">
-      Your experience matters to us.
-    </div>
+			<div class="subtitle">
+				Your experience matters to us.
+			</div>
 
-    <div class="stars">
 
-      <span
-        onclick="rate(1)"
-        onmouseenter="preview(1)"
-      >★</span>
+			<div class="stars">
 
-      <span
-        onclick="rate(2)"
-        onmouseenter="preview(2)"
-      >★</span>
+				<span onclick="rate(1)" onmouseenter="preview(1)">★</span>
 
-      <span
-        onclick="rate(3)"
-        onmouseenter="preview(3)"
-      >★</span>
+				<span onclick="rate(2)" onmouseenter="preview(2)">★</span>
 
-      <span
-        onclick="rate(4)"
-        onmouseenter="preview(4)"
-      >★</span>
+				<span onclick="rate(3)" onmouseenter="preview(3)">★</span>
 
-      <span
-        onclick="rate(5)"
-        onmouseenter="preview(5)"
-      >★</span>
+				<span onclick="rate(4)" onmouseenter="preview(4)">★</span>
 
-    </div>
+				<span onclick="rate(5)" onmouseenter="preview(5)">★</span>
 
-    <div id="out">
-      Select a rating above
-    </div>
+			</div>
 
-    <textarea
+
+			<div id="out">
+				Select a rating above
+			</div>
+
+
+			<textarea
       id="feedback"
       class="feedback-input"
       placeholder="Tell us more about your experience..."
     ></textarea>
 
-    <button
-      id="again"
-      onclick="resetRating()"
-    >
-      Rate Again ↻
-    </button>
 
-    <div class="footer">
-      Thank you for choosing Waldorf Lorchestoria
-    </div>
+			<div class="button-row">
 
-  </div>
+				<!-- THIS BUTTON IS ALWAYS VISIBLE -->
 
-
-  <div id="chaosLayer"></div>
+				<button
+        id="submitReview"
+        onclick="submitReview()"
+      >
+        Submit Review ✦
+      </button>
 
 
-  <script>
+				<button
+        id="again"
+        onclick="resetRating()"
+      >
+        Rate Again ↻
+      </button>
+
+			</div>
+
+
+			<div id="submitStatus"></div>
+
+
+			<div class="footer">
+				Thank you for choosing Waldorf Lorchestoria
+			</div>
+
+		</div>
+
+
+		<div id="chaosLayer"></div>
+
+
+		<script>
+			/* =========================================
+       YOUR WEB3FORMS ACCESS KEY
+       ========================================= */
+
+    const WEB3FORMS_ACCESS_KEY =
+      "003cb3db-4401-4a48-bddb-1190c1e99545";
+
 
     const card =
       document.getElementById("card");
@@ -1076,6 +1134,12 @@
 
     const again =
       document.getElementById("again");
+
+    const submitButton =
+      document.getElementById("submitReview");
+
+    const submitStatus =
+      document.getElementById("submitStatus");
 
     const chaosLayer =
       document.getElementById("chaosLayer");
@@ -1104,9 +1168,9 @@
     };
 
 
-    /* =====================================
-       PREVIEW
-    ====================================== */
+    /* =========================================
+       STAR PREVIEW
+       ========================================= */
 
     function preview(number) {
 
@@ -1126,15 +1190,15 @@
     }
 
 
-    /* =====================================
-       RATE
-    ====================================== */
+    /* =========================================
+       STAR RATING
+       ========================================= */
 
     function rate(number) {
 
       /*
-        ONLY ONE STAR IS INCORRECT.
-        2, 3, 4, AND 5 WORK NORMALLY.
+        YOUR ORIGINAL ONE-STAR JOKE
+        IS KEPT EXACTLY.
       */
 
       if (number === 1) {
@@ -1150,8 +1214,6 @@
       selectedRating = number;
 
 
-      /* remove old rating states */
-
       card.classList.remove(
         "low",
         "neutral",
@@ -1159,8 +1221,6 @@
         "excellent"
       );
 
-
-      /* assign correct elegant state */
 
       if (number <= 2) {
 
@@ -1187,8 +1247,6 @@
       }
 
 
-      /* animate stars */
-
       stars.forEach((star, index) => {
 
         star.classList.toggle(
@@ -1212,17 +1270,13 @@
       });
 
 
-      /* update message */
-
       output.classList.remove("change");
 
 
       setTimeout(() => {
 
         output.innerHTML =
-
           messages[number] +
-
           `
             <span class="rating-number">
               ${number} out of 5 stars
@@ -1237,11 +1291,6 @@
       again.classList.add("show");
 
 
-      /*
-        Normal ratings still get
-        their original dramatic reaction.
-      */
-
       setTimeout(() => {
 
         dramaticReaction(number);
@@ -1251,9 +1300,162 @@
     }
 
 
-    /* =====================================
+    /* =========================================
+       SEND REVIEW WITH WEB3FORMS
+       ========================================= */
+
+    async function submitReview() {
+
+      if (selectedRating === 0) {
+
+        submitStatus.textContent =
+          "Please select a rating first.";
+
+        return;
+
+      }
+
+
+      submitButton.disabled = true;
+
+      submitButton.textContent =
+        "Sending Review...";
+
+      submitStatus.textContent =
+        "Sending your review...";
+
+
+      const formData = new FormData();
+
+
+      /*
+        THIS IS YOUR WEB3FORMS ACCESS KEY
+      */
+
+      formData.append(
+        "access_key",
+        WEB3FORMS_ACCESS_KEY
+      );
+
+
+      /*
+        EMAIL SUBJECT
+      */
+
+      formData.append(
+        "subject",
+        "New Waldorf Lorchestoria Guest Review"
+      );
+
+
+      /*
+        RATING
+      */
+
+      formData.append(
+        "rating",
+        selectedRating + " out of 5 stars"
+      );
+
+
+      /*
+        WRITTEN FEEDBACK
+      */
+
+      formData.append(
+        "feedback",
+        feedbackInput.value.trim() ||
+        "No written feedback provided."
+      );
+
+
+      /*
+        FULL MESSAGE
+      */
+
+      formData.append(
+        "message",
+        `
+WALDORF LORCHESTORIA
+Guest Review
+
+Rating:
+${selectedRating} out of 5 stars
+
+Guest Feedback:
+${feedbackInput.value.trim() || "No written feedback provided."}
+        `
+      );
+
+
+      try {
+
+        const response =
+          await fetch(
+            "https://api.web3forms.com/submit",
+            {
+              method: "POST",
+              body: formData
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (result.success) {
+
+          submitButton.textContent =
+            "Review Sent ✓";
+
+          submitStatus.textContent =
+            "Thank you. Your review has been sent.";
+
+          setTimeout(() => {
+
+            resetRating();
+
+          }, 2500);
+
+        }
+
+        else {
+
+          submitButton.disabled = false;
+
+          submitButton.textContent =
+            "Submit Review ✦";
+
+          submitStatus.textContent =
+            "Something went wrong. Please try again.";
+
+          console.error(result);
+
+        }
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "Submit Review ✦";
+
+        submitStatus.textContent =
+          "Something went wrong. Please try again.";
+
+      }
+
+    }
+
+
+    /* =========================================
        DRAMATIC REACTION
-    ====================================== */
+       ========================================= */
 
     function dramaticReaction(number) {
 
@@ -1267,8 +1469,6 @@
       );
 
 
-      /* giant emoji */
-
       const giant =
         document.createElement("div");
 
@@ -1277,26 +1477,32 @@
 
 
       if (number === 2) {
+
         giant.textContent = "🫠";
+
       }
 
       else if (number === 3) {
+
         giant.textContent = "🤨";
+
       }
 
       else if (number === 4) {
+
         giant.textContent = "💃";
+
       }
 
       else {
+
         giant.textContent = "👑";
+
       }
 
 
       chaosLayer.appendChild(giant);
 
-
-      /* dramatic title */
 
       const title =
         document.createElement("div");
@@ -1337,8 +1543,6 @@
       chaosLayer.appendChild(title);
 
 
-      /* flash */
-
       const flash =
         document.createElement("div");
 
@@ -1347,8 +1551,6 @@
 
       chaosLayer.appendChild(flash);
 
-
-      /* emoji selection */
 
       let emojis;
 
@@ -1413,8 +1615,6 @@
       }
 
 
-      /* number of emojis */
-
       const amount =
         number === 5
           ? 42
@@ -1422,8 +1622,6 @@
           ? 32
           : 25;
 
-
-      /* create flying emojis */
 
       for (let i = 0; i < amount; i++) {
 
@@ -1529,11 +1727,6 @@
       }
 
 
-      /*
-        EVERYTHING VANISHES
-        AFTER 2.7 SECONDS.
-      */
-
       setTimeout(() => {
 
         chaosLayer.classList.remove(
@@ -1551,9 +1744,9 @@
     }
 
 
-    /* =====================================
+    /* =========================================
        RESET
-    ====================================== */
+       ========================================= */
 
     function resetRating() {
 
@@ -1593,12 +1786,21 @@
         "show"
       );
 
+
+      submitButton.disabled = false;
+
+      submitButton.textContent =
+        "Submit Review ✦";
+
+
+      submitStatus.textContent = "";
+
     }
 
 
-    /* =====================================
+    /* =========================================
        MOUSE TILT
-    ====================================== */
+       ========================================= */
 
     document.addEventListener(
       "mousemove",
@@ -1646,7 +1848,7 @@
       }
     );
 
-  </script>
+		</script>
 
 </body>
 
